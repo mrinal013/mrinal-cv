@@ -35,8 +35,24 @@ function cvTab(evt, tabName) {
 			action : 'tab_content_general',
 		},
 		success: function(response) {
-			$('.tabcontent#General').html('<h2>General</h2>');
-		}
+			var response = $.parseJSON(response);
+			console.log(response);
+			$('.tabcontent#General').html('<div class="generalTab"></div>');
+			$.each(response, function(key, value){
+				if((key=='Name')||(key=='Address')) {
+					$('.generalTab').append('<p>'+value+'</p>');
+				}
+				if((key=='Email')||(key=='Mobile')){
+					$('.generalTab').append('<p>'+key+': '+value+'</p>');
+				}
+				if(key=='Objective') {
+					$('.generalTab').append('<strong>'+key+'</strong><p>'+value+'</p>');
+				}
+				if(key=='image'){
+					$('.generalTab').append('<img src="'+value+'"/>');
+				}
+			});
+		}	
 	});
 
 	$(".tablinks").click(function() {
@@ -56,36 +72,112 @@ function cvTab(evt, tabName) {
 				action : 'tab_content_' + activeContent,
 			},
 			success: function(response) {
+				var response = $.parseJSON(response);
 				console.log(response);
 				if(activeContent=='general') {
-					$('.tabcontent#'+OriginalTabName).html('<h2>'+OriginalTabName+'</h2>');
+					$('.tabcontent#'+OriginalTabName).html('<div class="generalTab"></div>');
+					$.each(response, function(key, value){
+						if((key=='Name')||(key=='Address')) {
+							$('.generalTab').append('<p>'+value+'</p>');
+						}
+						if((key=='Email')||(key=='Mobile')){
+							$('.generalTab').append('<p>'+key+': '+value+'</p>');
+						}
+						if(key=='Objective') {
+							$('.generalTab').append('<strong>'+key+'</strong><p>'+value+'</p>');
+						}
+						if(key=='image'){
+							$('.generalTab').append('<img src="'+value+'"/>');
+						}
+					});
 				}
 				if(activeContent=='skill') {
-					$('.tabcontent#'+OriginalTabName).html('<h2>'+OriginalTabName+'</h2>');
+					$('.tabcontent#'+OriginalTabName).html('<div class="skillTab"></div>');
+					$.each(response, function(key, value){
+						$('.skillTab').append('<ul id='+ key +'><strong>'+ key +'</strong></ul>');
+						$.each(value, function(k, v){
+							$('.skillTab ul#'+key).append('<li>'+ v +'</li>');
+						});
+					});
 				}
 				if(activeContent=='employment') {
-					$('.tabcontent#'+OriginalTabName).html('<h2>'+OriginalTabName+'</h2>');
+					$('.tabcontent#'+OriginalTabName).html('<table class="employTab"></table>');
+					$.each(response, function(key, value){
+						$('.employTab').append('<tr id='+ key +'></tr>');
+						$.each(value, function(k, v){
+							$('.employTab tbody>tr#'+key).append('<td class='+k+'>'+v+'</td>');
+							// if($.isArray(v)){
+							// 	$('.employTab tbody>tr#'+key+' td.'+k).html('<ul class='+key+'></ul>');
+							// 	$.each(v, function(i, j){
+							// 		$('td.'+k+'>ul.'+k).append('<li>'+j+'</li>');
+							// 	});
+							// }
+						});
+					});
 				}
 				if(activeContent=='portfolio') {
-					$('.tabcontent#'+OriginalTabName).html('<h2>'+OriginalTabName+'</h2>');
+					console.log(response);
+					$('.tabcontent#'+OriginalTabName).html('<table class="portfolioTab"></table>');
+					$.each( response, function(key, value){
+						$('.portfolioTab').append('<tr id='+ key +'></tr>');
+						$.each(value, function(k, v) {
+							$('.portfolioTab tbody>tr#'+key).append('<td class='+k+'>'+v+'</td>');
+						});
+					});
 				}
 				if(activeContent=='education') {
-					$('.tabcontent#'+OriginalTabName).html('<h2>'+OriginalTabName+'</h2>');
+					$('.tabcontent#'+OriginalTabName).html('<table class="educationTab"></table>');
+					$.each( response, function(key, value){
+						$('.educationTab').append('<tr id='+ key +'></tr>');
+						$.each(value, function(k, v) {
+							$('.educationTab tbody>tr#'+key).append('<td class='+k+'>'+v+'</td>');
+						});
+					});
 				}
 				if(activeContent=='training') {
-					$('.tabcontent#'+OriginalTabName).html('<h2>'+OriginalTabName+'</h2>');
+					$('.tabcontent#'+OriginalTabName).html('<table class="trainingTab"></table>');
+					$.each( response, function(key, value){
+						$('.trainingTab').append('<tr id='+ key +'></tr>');
+						$.each(value, function(k, v) {
+							$('.trainingTab tbody>tr#'+key).append('<td class='+k+'>'+v+'</td>');
+						});
+					});
 				}
 				if(activeContent=='personal') {
-					$('.tabcontent#'+OriginalTabName).html('<h2>'+OriginalTabName+'</h2>');
+					$('.tabcontent#'+OriginalTabName).html('<div class="personalTab"></div>');
+					$.each(response, function(key, value){
+						if(!$.isPlainObject(value)){
+							$('#'+OriginalTabName+' .personalTab').append('<p>'+key+': '+value+'</p>');
+						} else {
+							$('#'+OriginalTabName+' .personalTab').append('<table></table>');
+							$.each(value, function(k, v){
+								$('.personalTab table').append('<tr id='+ k +'></tr>');
+								$('.personalTab table tr#'+k).append('<td>'+k+'</td>');
+								$.each(v, function(i, j){
+									$('.personalTab table tr#'+k).append('<td>'+j+'</td>');
+								});
+
+							});
+						}
+					});
 				}
 				if(activeContent=='social') {
-					$('.tabcontent#'+OriginalTabName).html('<h2>'+OriginalTabName+'</h2>');
+					$('.tabcontent#'+OriginalTabName).html('<div class="socialTab"></div>');
+					$.each(response, function(key, value){
+						$('#'+OriginalTabName+' .socialTab').append('<p>'+key+': <a href="'+value+'">'+value+'</a></p>');
+					});
 				}
 				if(activeContent=='references') {
-					$('.tabcontent#'+OriginalTabName).html('<h2>'+OriginalTabName+'</h2>');
+					$('.tabcontent#'+OriginalTabName).html('<div class="referencesTab"></div>');
+					$.each(response, function(key, value){
+						$('#'+OriginalTabName+' .referencesTab').append('<p>'+key+'</p>');
+						$.each(value, function(k, v){
+							$('#'+OriginalTabName+' .referencesTab').append('<p>'+v+'</p>');
+						});
+						$('#'+OriginalTabName+' .referencesTab').append('<hr/>');
+					});
 				}
 			}
 		});
 	});
-	
 });

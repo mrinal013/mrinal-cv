@@ -1,10 +1,11 @@
 <?php
 $mrinal_general = array(
 	'Name'		=> 'Md. Mrinal Haque',
-	'Address'	=> '251, East Kazipara, Mirpur, Dhaka-1216, Bangladesh.',
+	'Address'	=> 'Uttara University',
 	'Email'		=> 'mrinalhaque99@gmail.com',
 	'Mobile'	=> '+8801741-149730',
-	'Objective'	=> 'Find out a career opportunity to develop my professional skills with comfortable environment tolearn new web technologies. Ability to work under pressure, responsibility & dedication to work, eagerness to learn new technology within quick time-frame, friendliness with teammates will help me to find this career.'
+	'Objective'	=> 'Find out a career opportunity to develop my professional skills with comfortable environment to learn new web technologies. Ability to work under pressure, responsibility & dedication to work, eagerness to learn new technology within quick time-frame, friendliness with teammates will help me to find this career.',
+	'image'		=> 'http://res.cloudinary.com/drl3jsm92/image/upload/v1514659930/photo_ackax0.jpg',
 );
 $mrinal_skills = array(
 	'WordPress'	=> array(
@@ -26,14 +27,19 @@ $mrinal_skills = array(
 		'Interact with MySQL',
 		'Primary concept on MVC Design Pattern'
 	),
-	'HTML & CSS'=> array(
-		'Twitter Bootstrap',
-		'CSS Media Query'
+	'HTML'		=> array(
+		'Semantic Markup',
+		'w3 validate HTML coding'
+	),
+	'CSS'		=> array(
+		'Custom media query',
+		'w3 validate CSS coding'
 	),
 	'jQuery'	=> array(
 		'Implement on web pages'
 	),
 	'Others'	=> array(
+		'Twitter Bootstrap',
 		'Git',
 		'Linux',
 		'Trello',
@@ -45,7 +51,8 @@ $mrinal_skills = array(
 	),
 );
 $mrinal_employment = array(
-	'Sunhillworks Ltd.' => array(
+	'sunhillworks' => array(
+		'name'			=> 'Sunhillworks Ltd.',
 		'url'			=> 'https://www.facebook.com/sunhillworks/',
 		'location'		=> '7 th floor, Hazi Samsuddin Mansion, New Eskaton road, Dhaka.',
 		'position'		=> 'PHP/WordPres Developer',
@@ -56,7 +63,8 @@ $mrinal_employment = array(
 		),
 		'duration'		=> 'October, 2016 – November, 2017',
 	),
-	'xpeedStudio'		=> array(
+	'xpeedstudio'		=> array(
+		'name'			=> 'xpeedStudio',
 		'url'			=> 'https://xpeedstudio.com/',
 		'location'		=> 'Doudkandi, Comilla.',
 		'position'		=> 'Support Engineer & WordPress Developer',
@@ -67,7 +75,8 @@ $mrinal_employment = array(
 		),
 		'duration'		=> 'April, 2016 – September, 2016',
 	),
-	'weDevs'			=> array(
+	'wedevs'			=> array(
+		'name'			=> 'weDevs',
 		'url'			=> 'https://wedevs.com/',
 		'location'		=> 'Flat #F4, House #8, Road#13(new), Dhanmondi, Dhaka.',
 		'position'		=> 'Support Engineer (Intern)',
@@ -79,7 +88,8 @@ $mrinal_employment = array(
 	),
 );
 $mrinal_portfolio = array(
-	'http://bluepackshop.dk/'	=> array(
+	'bluepackshop'	=> array(
+		'url'				=> 'http://bluepackshop.dk/',
 		'description'		=> 'Develop and Maintain Ecommerce Shop (WooCommerce)',
 		'duration'			=> 'Jun, 2017 to October, 2017',
 		'responsibility'	=> array(
@@ -87,8 +97,9 @@ $mrinal_portfolio = array(
 			'CSS and jQuery implement'
 		),
 	),
-	'http://omcbd.com/'	=> array(
-		'description'		=> 'Develop and Maintain Multisite with WooCommerce',
+	'omc'	=> array(
+		'url'				=> 'http://omcbd.com/',
+		'description'		=> 'Develop and Maintain Multisite with WooCommerce for Overseas Marketing Ltd.',
 		'duration'			=> 'November, 2016 to January, 2017',
 		'responsibility'	=> array(
 			'Consult with client about their requirement.',
@@ -96,7 +107,8 @@ $mrinal_portfolio = array(
 			'Implement HTML, CSS, jQuery and PHP to meet the requirement'
 		),
 	),		
-	'https://themeforest.net/item/accommodation-hotel-resorts-booking-wordpress-theme/15020430?s_rank=20' => array(
+	'accommodation' => array(
+		'url'				=> 'https://themeforest.net/item/accommodation-hotel-resorts-booking-wordpress-theme/15020430?s_rank=20',
 		'description'		=> 'Develop a WordPress Theme for Themeforest',
 		'duration'			=> 'April 2016 to Sepletmber 2016',
 		'responsibility'	=> array(
@@ -104,14 +116,16 @@ $mrinal_portfolio = array(
 			'Create new option in Unyson Theme Option Framework'
 		),
 	),
-	'https://wordpress.org/plugins/social-simple-widget/'=> array(
+	'widget'=> array(
+		'url'				=> 'https://wordpress.org/plugins/social-simple-widget/',
 		'description'		=> 'WordPress plugin development',
 		'duration'			=> 'October, 2016',
 		'responsibility'	=> array(
 			'Work with Widget API',
 		),
 	),
-	'https://github.com/mrinal013/introduce'=> array(
+	'introduce'=> array(
+		'url'				=> 'https://github.com/mrinal013/introduce',
 		'description'		=> 'One Page WordPress Theme Development',
 		'duration'			=> 'November 2016',
 		'responsibility'	=> array(
@@ -121,7 +135,8 @@ $mrinal_portfolio = array(
 			'TGM plugin Activation'
 		),
 	),
-	'http://www.milliefine.com/'		=> array(
+	'milliefine'		=> array(
+		'url'				=> 'http://www.milliefine.com/',
 		'description'		=> 'WordPress site for property showcase',
 		'duration'			=> 'November, 2016',
 		'responsibility'	=> array(
@@ -130,25 +145,29 @@ $mrinal_portfolio = array(
 	),
 );
 $mrinal_education = array(
-	'B.Sc. (Hons)'	=> array(
+	'uttara'	=> array(
+		'degree'	=> 'B.Sc.(Hons)',
 		'Subject'	=> 'Computer Science and Engineering',
 		'Institute'	=> 'Uttara University',
 		'Result'	=> 'CGPA - 3.51',
 		'duration'	=> '2013-2016',
 	),
-	'B.Sc. (Hons)'	=> array(
+	'jahangirnagar'	=> array(
+		'degree'	=> 'B.Sc.(Hons)',
 		'Subject'	=> 'Statistics',
 		'Institute'	=> 'Jahangirnagar University',
 		'Result'	=> 'Not Completed',
 		'duration'	=> '2006-2011',
 	),
-	'HSC'			=> array(
+	'hsc'			=> array(
+		'degree'	=> 'HSC',
 		'Subject'	=> 'Science',
 		'Institute'	=> 'Adamjee Cantonment College',
 		'Result'	=> 'GPA-3.60',
 		'duration'	=> '2004-2005'
 	),
-	'SSC'			=> array(
+	'ssc'			=> array(
+		'degree'	=> 'SSC',
 		'Subject'	=> 'Science',
 		'Institute'	=> 'Daulatpur P.S. High School',
 		'Result'	=> 'GPA-3.50',
@@ -156,11 +175,13 @@ $mrinal_education = array(
 	),
 );
 $mrinal_training = array(
-	'WordPress Theme Development (3rd Batch) by Hasin Hayder'	=> array(
+	'techmasters'	=> array(
+		'name'		=> 'WordPress Theme Development (3rd Batch) by Hasin Hayder',
 		'Institute'	=> 'Techmasters',
 		'duration'	=> 'June, 2015 to December, 2015',
 	),
-	'Web Development and Design'	=> array(
+	'uupac'	=> array(
+		'name'		=> 'Web Development and Design',
 		'Institute'	=> 'Uttara University Programming Association',
 		'duration'	=> 'June, 2013 – September, 2013',
 	),

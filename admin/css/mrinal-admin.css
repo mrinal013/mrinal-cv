@@ -39,4 +39,34 @@
      padding: 6px 12px;
      border: 1px solid #ccc;
      border-top: none;
- } 
+ }
+
+ /* Style skillTab content */
+ .skillTab {
+     display: flex;
+     flex-wrap: wrap;
+ }
+ .skillTab>ul {
+     flex-grow: 1;
+     width: 30%;
+     padding-left: 2%;
+ }
+ .skillTab>ul:nth-of-type(even) {
+     background-color: #ccc;
+ }
+
+ /* employment tab style */
+ .employTab tr:nth-of-type(even) {
+     background-color: #ccc;
+ }
+ .employTab td{
+     /*border: 1px solid red;*/
+     border-collapse: collapse;
+ }
+
+ /* custom media query  */
+ @media screen and (max-width: 830px) {
+     .tab {
+          display: block;
+      }
+ }
