@@ -41,6 +41,24 @@ class Mrinal_Admin {
 	private $version;
 
 	/**
+	* Sections array
+	*
+	* @since  1.0.0
+	* @access private
+	*/
+	private $sections = array(
+		'general',
+    	'skill',
+    	'employment',
+    	'portfolio',
+    	'education',
+    	'training',
+    	'personal',
+    	'social',
+    	'references'
+	);
+
+	/**
 	 * Initialize the class and set its properties.
 	 *
 	 * @since    1.0.0
@@ -57,15 +75,10 @@ class Mrinal_Admin {
 		*/
 		add_action( 'admin_menu', array( $this, 'mrinal_cv_page' ) );
 		add_action('admin_init', array( $this, 'my_plugin_redirect' ));
-		add_action( 'wp_ajax_tab_content_general', array( $this, 'tab_content_general' ) );
-		add_action( 'wp_ajax_tab_content_skill', array( $this, 'tab_content_skill' ) );
-		add_action( 'wp_ajax_tab_content_employment', array( $this, 'tab_content_employment' ) );
-		add_action( 'wp_ajax_tab_content_portfolio', array( $this, 'tab_content_portfolio' ) );
-		add_action( 'wp_ajax_tab_content_education', array( $this, 'tab_content_education' ) );
-		add_action( 'wp_ajax_tab_content_training', array( $this, 'tab_content_training' ) );
-		add_action( 'wp_ajax_tab_content_personal', array( $this, 'tab_content_personal' ) );
-		add_action( 'wp_ajax_tab_content_social', array( $this, 'tab_content_social' ) );
-		add_action( 'wp_ajax_tab_content_references', array( $this, 'tab_content_references' ) );
+		$contents = $this->sections;
+		foreach($contents as $content) {
+			add_action( 'wp_ajax_tab_content_'.$content, array( $this, 'tab_content_'.$content ) );
+		}
 	}
 	/*
 	* Load General Tab Content
@@ -145,7 +158,7 @@ class Mrinal_Admin {
 	public function my_plugin_redirect() {
 	    if (get_option('my_plugin_do_activation_redirect', false)) {
 	        delete_option('my_plugin_do_activation_redirect');
-	         exit( wp_redirect("users.php?page=mrinal_cv_page") );
+	         exit( wp_redirect("tools.php?page=mrinal_cv_page") );
 	    }
 	}
 
@@ -154,7 +167,7 @@ class Mrinal_Admin {
      * This page will be under "Users"
      */
     public function mrinal_cv_page() {
-        add_users_page(
+        add_management_page(
         	__('Mrinal','mrinal'), __('Mrinal','mrinal'), 'manage_options', 'mrinal_cv_page',
             array( $this, 'create_admin_page') );
     }
@@ -166,24 +179,12 @@ class Mrinal_Admin {
     ?>
     <div class="wrap">
         <h1>Curriculum Vitae</h1>
-        <?php
-        $tabs = array(
-        	'General',
-        	'Skill',
-        	'Employment',
-        	'Portfolio',
-        	'Education',
-        	'Training',
-        	'Personal',
-        	'Social',
-        	'References'
-        );
-        ?>
         <!-- Tab links -->
         <div class="tab">
         <?php
+        $tabs = $this->sections;
         foreach( $tabs as $tab ) { ?>
-			<button class="tablinks" onclick="cvTab(event, '<?php echo $tab; ?>')" ><?php echo $tab; ?></button>
+			<button class="tablinks" onclick="cvTab(event, '<?php echo ucfirst($tab); ?>')" ><?php echo ucfirst($tab); ?></button>
 		<?php
        	}
         ?>
@@ -192,7 +193,7 @@ class Mrinal_Admin {
         <?php
         foreach( $tabs as $tab ) {
         ?>
-        <div id="<?php echo $tab; ?>" class="tabcontent">
+        <div id="<?php echo ucfirst($tab); ?>" class="tabcontent">
         </div>
         <?php
         }
@@ -206,10 +207,9 @@ class Mrinal_Admin {
 	 *
 	 * @since    1.0.0
 	 */
-	public function enqueue_styles() {
+	public function enqueue_styles($hook) {
 
 		/**
-		 * This function is provided for demonstration purposes only.
 		 *
 		 * An instance of this class should be passed to the run() function
 		 * defined in Mrinal_Loader as all of the hooks are defined
@@ -219,6 +219,9 @@ class Mrinal_Admin {
 		 * between the defined hooks and the functions defined in this
 		 * class.
 		 */
+		if( 'tools_page_mrinal_cv_page' != $hook ) {
+			return;
+		}
 
 		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/mrinal-admin.css', array(), $this->version, 'all' );
 
@@ -229,10 +232,9 @@ class Mrinal_Admin {
 	 *
 	 * @since    1.0.0
 	 */
-	public function enqueue_scripts() {
+	public function enqueue_scripts($hook) {
 
 		/**
-		 * This function is provided for demonstration purposes only.
 		 *
 		 * An instance of this class should be passed to the run() function
 		 * defined in Mrinal_Loader as all of the hooks are defined
@@ -242,6 +244,9 @@ class Mrinal_Admin {
 		 * between the defined hooks and the functions defined in this
 		 * class.
 		 */
+		if( 'tools_page_mrinal_cv_page' != $hook ) {
+			return;
+		}
 
 		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/mrinal-admin.js', array( 'jquery' ), $this->version, true );
 		wp_localize_script( $this->plugin_name, 'ajax_object',

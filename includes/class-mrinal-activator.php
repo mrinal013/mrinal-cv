@@ -22,6 +22,22 @@
  */
 class Mrinal_Activator {
 
+	public static function getData() {
+		include_once(plugin_dir_path(__FILE__) . "data/mrinal_cv.php");
+		$contents = array(
+			'general'=>json_encode($mrinal_general),
+	    	'skills'=>json_encode($mrinal_skills),
+	    	'employment'=>json_encode($mrinal_employment),
+	    	'portfolio'=>json_encode($mrinal_portfolio),
+	    	'education'=>json_encode($mrinal_education),
+	    	'training'=>json_encode($mrinal_training),
+	    	'personal'=>json_encode($mrinal_personal),
+	    	'social'=>json_encode($mrinal_social),
+	    	'references'=>json_encode($mrinal_references)
+		);
+		return $contents;
+	}
+
 	/**
      * Start up
 	 *
@@ -37,15 +53,8 @@ class Mrinal_Activator {
 		/*
 		* Set data in $wpdb->prefix . options table as json format
 		*/
-		include_once(plugin_dir_path(__FILE__) . "data/mrinal_cv.php");
-		update_option( 'mrinal_general', json_encode($mrinal_general) );
-		update_option( 'mrinal_skills', json_encode($mrinal_skills) );
-		update_option( 'mrinal_employment', json_encode($mrinal_employment) );
-		update_option( 'mrinal_portfolio', json_encode($mrinal_portfolio) );
-		update_option( 'mrinal_education', json_encode($mrinal_education) );
-		update_option( 'mrinal_training', json_encode($mrinal_training) );
-		update_option( 'mrinal_personal', json_encode($mrinal_personal) );
-		update_option( 'mrinal_social', json_encode($mrinal_social) );
-		update_option( 'mrinal_references', json_encode($mrinal_references) );		
+		foreach(self::getData() as $key=>$value) {
+			update_option( 'mrinal_'.$key, $value );
+		}	
 	}
 }

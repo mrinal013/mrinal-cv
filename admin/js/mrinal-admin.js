@@ -22,7 +22,7 @@ function cvTab(evt, tabName) {
 ;jQuery(document).ready(function( $ ) {
 	
 	$("button.tablinks:first-of-type").attr('id', 'defaultOpen');
-	// find active content
+	// defaultly open general tab
 	document.getElementById("defaultOpen").click();
 
 	/*
@@ -38,18 +38,25 @@ function cvTab(evt, tabName) {
 			var response = $.parseJSON(response);
 			console.log(response);
 			$('.tabcontent#General').html('<div class="generalTab"></div>');
+			$('.generalTab').append('<div class="basic"></div><div class="image"></div><div class="objective"></div>');
 			$.each(response, function(key, value){
-				if((key=='Name')||(key=='Address')) {
-					$('.generalTab').append('<p>'+value+'</p>');
+				if(key=='Name') {
+					$('.generalTab .basic').append('<p class="name">'+value+'</p>');
 				}
-				if((key=='Email')||(key=='Mobile')){
-					$('.generalTab').append('<p>'+key+': '+value+'</p>');
+				if(key=='Address') {
+					$('.generalTab .basic').append('<p>'+value+'</p>');
+				}
+				if(key=='Email'){
+					$('.generalTab .basic').append('<p>'+key+': <a href="mailto:'+value+'">'+value+'</a></p>');
+				}
+				if(key=='Mobile'){
+					$('.generalTab .basic').append('<p>'+key+': '+value+'</p>');
 				}
 				if(key=='Objective') {
-					$('.generalTab').append('<strong>'+key+'</strong><p>'+value+'</p>');
+					$('.generalTab .objective').append('<strong>'+key+'</strong><p>'+value+'</p>');
 				}
 				if(key=='image'){
-					$('.generalTab').append('<img src="'+value+'"/>');
+					$('.generalTab .image').append('<img src="'+value+'" alt="My Picture"/>');
 				}
 			});
 		}	
@@ -76,27 +83,34 @@ function cvTab(evt, tabName) {
 				console.log(response);
 				if(activeContent=='general') {
 					$('.tabcontent#'+OriginalTabName).html('<div class="generalTab"></div>');
+					$('.generalTab').append('<div class="basic"></div><div class="image"></div><div class="objective"></div>');
 					$.each(response, function(key, value){
-						if((key=='Name')||(key=='Address')) {
-							$('.generalTab').append('<p>'+value+'</p>');
+						if(key=='Name') {
+							$('.generalTab .basic').append('<p class="name">'+value+'</p>');
 						}
-						if((key=='Email')||(key=='Mobile')){
-							$('.generalTab').append('<p>'+key+': '+value+'</p>');
+						if(key=='Address') {
+							$('.generalTab .basic').append('<p>'+value+'</p>');
+						}
+						if(key=='Email'){
+							$('.generalTab .basic').append('<p>'+key+': <a href="mailto:'+value+'">'+value+'</a></p>');
+						}
+						if(key=='Mobile'){
+							$('.generalTab .basic').append('<p>'+key+': '+value+'</p>');
 						}
 						if(key=='Objective') {
-							$('.generalTab').append('<strong>'+key+'</strong><p>'+value+'</p>');
+							$('.generalTab .objective').append('<strong>'+key+'</strong><p>'+value+'</p>');
 						}
 						if(key=='image'){
-							$('.generalTab').append('<img src="'+value+'"/>');
+							$('.generalTab .image').append('<img src="'+value+'" alt="My Picture"/>');
 						}
 					});
 				}
 				if(activeContent=='skill') {
 					$('.tabcontent#'+OriginalTabName).html('<div class="skillTab"></div>');
 					$.each(response, function(key, value){
-						$('.skillTab').append('<ul id='+ key +'><strong>'+ key +'</strong></ul>');
+						$('.skillTab').append('<ol id='+ key +'><strong>'+ key +'</strong></ol>');
 						$.each(value, function(k, v){
-							$('.skillTab ul#'+key).append('<li>'+ v +'</li>');
+							$('.skillTab ol#'+key).append('<li>'+ v +'</li>');
 						});
 					});
 				}
@@ -105,13 +119,11 @@ function cvTab(evt, tabName) {
 					$.each(response, function(key, value){
 						$('.employTab').append('<tr id='+ key +'></tr>');
 						$.each(value, function(k, v){
-							$('.employTab tbody>tr#'+key).append('<td class='+k+'>'+v+'</td>');
-							// if($.isArray(v)){
-							// 	$('.employTab tbody>tr#'+key+' td.'+k).html('<ul class='+key+'></ul>');
-							// 	$.each(v, function(i, j){
-							// 		$('td.'+k+'>ul.'+k).append('<li>'+j+'</li>');
-							// 	});
-							// }
+							if(k==Object.keys(value)[0]) {
+								$('.employTab tbody>tr#'+key).append('<td class='+k+'><a href="'+v+'" target="_blank">'+k+'</a></td>');
+							} else {
+								$('.employTab tbody>tr#'+key).append('<td class='+k+'>'+v+'</td>');
+							}								
 						});
 					});
 				}
@@ -121,7 +133,11 @@ function cvTab(evt, tabName) {
 					$.each( response, function(key, value){
 						$('.portfolioTab').append('<tr id='+ key +'></tr>');
 						$.each(value, function(k, v) {
-							$('.portfolioTab tbody>tr#'+key).append('<td class='+k+'>'+v+'</td>');
+							if(k=='url'){
+								$('.portfolioTab tbody>tr#'+key).append('<td class='+k+'><a href="'+v+'">'+v+'</a></td>');
+							} else {
+								$('.portfolioTab tbody>tr#'+key).append('<td class='+k+'>'+v+'</td>');
+							}
 						});
 					});
 				}
@@ -144,33 +160,23 @@ function cvTab(evt, tabName) {
 					});
 				}
 				if(activeContent=='personal') {
+					console.log(response);
 					$('.tabcontent#'+OriginalTabName).html('<div class="personalTab"></div>');
 					$.each(response, function(key, value){
-						if(!$.isPlainObject(value)){
-							$('#'+OriginalTabName+' .personalTab').append('<p>'+key+': '+value+'</p>');
-						} else {
-							$('#'+OriginalTabName+' .personalTab').append('<table></table>');
-							$.each(value, function(k, v){
-								$('.personalTab table').append('<tr id='+ k +'></tr>');
-								$('.personalTab table tr#'+k).append('<td>'+k+'</td>');
-								$.each(v, function(i, j){
-									$('.personalTab table tr#'+k).append('<td>'+j+'</td>');
-								});
-
-							});
-						}
+						$('#'+OriginalTabName+' .personalTab').append('<p><strong>'+key+':</strong> '+value+'</p>');
+							
 					});
 				}
 				if(activeContent=='social') {
 					$('.tabcontent#'+OriginalTabName).html('<div class="socialTab"></div>');
 					$.each(response, function(key, value){
-						$('#'+OriginalTabName+' .socialTab').append('<p>'+key+': <a href="'+value+'">'+value+'</a></p>');
+						$('#'+OriginalTabName+' .socialTab').append('<p>'+key+': <a href="'+value+'" target="_blank">'+value+'</a></p>');
 					});
 				}
 				if(activeContent=='references') {
 					$('.tabcontent#'+OriginalTabName).html('<div class="referencesTab"></div>');
 					$.each(response, function(key, value){
-						$('#'+OriginalTabName+' .referencesTab').append('<p>'+key+'</p>');
+						$('#'+OriginalTabName+' .referencesTab').append('<p class="name">'+key+'</p>');
 						$.each(value, function(k, v){
 							$('#'+OriginalTabName+' .referencesTab').append('<p>'+v+'</p>');
 						});

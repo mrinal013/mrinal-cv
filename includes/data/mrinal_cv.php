@@ -52,8 +52,7 @@ $mrinal_skills = array(
 );
 $mrinal_employment = array(
 	'sunhillworks' => array(
-		'name'			=> 'Sunhillworks Ltd.',
-		'url'			=> 'https://www.facebook.com/sunhillworks/',
+		'Sunhillworks Ltd.'			=> 'https://www.facebook.com/sunhillworks/',
 		'location'		=> '7 th floor, Hazi Samsuddin Mansion, New Eskaton road, Dhaka.',
 		'position'		=> 'PHP/WordPres Developer',
 		'responsibility'=> array(
@@ -61,11 +60,10 @@ $mrinal_employment = array(
 			'PSD to HTML',
 
 		),
-		'duration'		=> 'October, 2016 – November, 2017',
+		'duration'		=> 'October, 2016 – Continue',
 	),
 	'xpeedstudio'		=> array(
-		'name'			=> 'xpeedStudio',
-		'url'			=> 'https://xpeedstudio.com/',
+		'xpeedStudio'	=> 'https://xpeedstudio.com/',
 		'location'		=> 'Doudkandi, Comilla.',
 		'position'		=> 'Support Engineer & WordPress Developer',
 		'responsibility'=> array(
@@ -76,8 +74,7 @@ $mrinal_employment = array(
 		'duration'		=> 'April, 2016 – September, 2016',
 	),
 	'wedevs'			=> array(
-		'name'			=> 'weDevs',
-		'url'			=> 'https://wedevs.com/',
+		'weDevs'		=> 'https://wedevs.com/',
 		'location'		=> 'Flat #F4, House #8, Road#13(new), Dhanmondi, Dhaka.',
 		'position'		=> 'Support Engineer (Intern)',
 		'responsibility'=> array(
@@ -88,6 +85,17 @@ $mrinal_employment = array(
 	),
 );
 $mrinal_portfolio = array(
+	'wibazzar'	=> array(
+		'url'				=> 'http://wibazaar.com/',
+		'description'		=> 'Develop multi vendor ecommerce site',
+		'duration'			=> 'Jun, 2017 to October, 2017',
+		'responsibility'	=> array(
+			'Develop prototype',
+			'Develop YITH Multivendor for new features',
+			'Develop new registration system',
+			'Develop new system for product comments'
+		),
+	),
 	'bluepackshop'	=> array(
 		'url'				=> 'http://bluepackshop.dk/',
 		'description'		=> 'Develop and Maintain Ecommerce Shop (WooCommerce)',
@@ -197,18 +205,7 @@ $mrinal_personal = array(
 	'Marital Status'	=> 'Married',
 	'Permanent Address'	=> 'Village: Baniaghona, Post: Charmastul, Thana: Daulatpur, District: Manikgonj',
 	'Present Address'	=> '251, East Kazipara, Mirpur, Dhaka-1216, Bangladesh.',
-	'Languages'			=> array(
-		'Bangla'	=> array(
-			'Reading'	=> 'High',
-			'Writing'	=> 'High',
-			'Speaking'	=> 'High',
-		),
-		'English'	=> array(
-			'Reading'	=> 'High',
-			'Writing'	=> 'Medium',
-			'Speaking'	=> 'Medium',
-		),
-	),
+	'Languages'			=> 'Bangla (Native), English (Intermediate)',
 	'Hobby'			=> 'Travelling',
 );
 $mrinal_social = array(
