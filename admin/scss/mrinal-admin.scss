@@ -1,0 +1,138 @@
+/**
+ * All of the CSS for your admin-specific functionality should be
+ * included in this file.
+ */
+@font-face {
+     font-family: ubuntu;
+     src: url(https://fonts.googleapis.com/css?family=Ubuntu:400,700);
+}
+/* Style the tab */
+.tab {
+	font-family: ubuntu, sans-serif;
+	font-weight: 400;
+	font-size: 12px;
+	display: flex;
+	justify-content: space-between;
+	overflow: hidden;
+	border: 1px solid #ccc;
+	background-color: #f1f1f1;
+    button {
+    	background-color: inherit;
+    	float: left;
+    	border: none;
+    	outline: none;
+    	cursor: pointer;
+    	padding: 14px 16px;
+    	transition: 0.3s;
+    	color: #000;
+    	&:hover {
+    		background-color: #ddd;
+    	}
+    	&:active {
+    		background-color: #ccc;
+    	}
+    }
+}
+
+/* Style the tab content */
+.tabcontent {
+     font-family: ubuntu, sans-serif;
+     font-weight: 400;
+     font-size: 13px;
+     color: #000;
+     background-color: #fff;
+     display: none;
+     padding: 6px 12px;
+     border: 1px solid #ccc;
+     border-top: none;
+}
+
+/* Common Styles */
+.employTab,
+.portfolioTab,
+.educationTab,
+.trainingTab {
+	border-collapse: collapse;
+	width: 100%;
+     tr:nth-of-type(even) {
+     	background-color: #ccc;
+     }
+     td {
+     	border: 1px solid #ccc;
+     }
+}
+.educationTab,
+.trainingTab {
+	td {
+    	line-height: 3;
+	}
+}
+.generalTab,
+.referencesTab {
+	.name {
+		font-size: 14px;
+		font-weight: 700;	
+	}
+}
+
+/* Style generalTab content */
+.generalTab {
+     display: grid;
+     grid-template-columns: 50% 50%;
+     grid-template-areas: 
+          "basic image"
+          "objective objective";
+    .basic {
+    	grid-area: basic;
+    }
+    .image {
+    	grid-area: image;
+    	text-align: right;
+    	img {
+    		max-width: 25%;
+    	}
+    }
+    .objective {
+    	grid-area: objective;
+    }
+    strong {
+    	font-size: 15px;
+    }
+}
+
+ /* Style skillTab content */
+.skillTab {
+     display: flex;
+     flex-wrap: wrap;
+     &>ol {
+     	flex-grow: 1;
+     	width: 30%;
+     	&strong {
+     		text-align: center;
+     		display: block;
+     	}
+     	&>li {
+     		margin-left: 5%;
+     		text-align: left;
+     	}
+     	&:nth-of-type(even) {
+     		background-color: #ccc;
+     	}
+     }
+}
+/* Style employTab */
+.employTab td{
+     border-collapse: collapse;
+}
+
+/* Arbitary */
+.language {
+     width: 100%;
+}
+
+ /* custom media query  */
+ @media screen and (max-width: 830px) {
+     .tab {
+          display: block;
+      }
+ }

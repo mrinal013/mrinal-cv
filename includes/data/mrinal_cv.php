@@ -16,7 +16,7 @@ $mrinal_skills = array(
 		'WordPress APIs including REST API, Shortcode, Widget',
 		'AJAX for WordPress',
 		'WP-CLI',
-		'Composer',
+		'Page Builder: Visual Composer',
 		'Theme option framework: codestar, redux, unyson.',
 		'Meta Box Framework: CMB2',
 		'Practical experience to developing theme for Themeforest'
@@ -46,8 +46,6 @@ $mrinal_skills = array(
 		'SASS',
 		'Gulp',
 		'Yeoman',
-		'postCSS',
-		'BEM'
 	),
 );
 $mrinal_employment = array(
@@ -65,7 +63,7 @@ $mrinal_employment = array(
 	'xpeedstudio'		=> array(
 		'xpeedStudio'	=> 'https://xpeedstudio.com/',
 		'location'		=> 'Doudkandi, Comilla.',
-		'position'		=> 'Support Engineer & WordPress Developer',
+		'position'		=> 'WordPress Support Engineer',
 		'responsibility'=> array(
 			'client support',
 			'PSD to HTML',
@@ -88,7 +86,7 @@ $mrinal_portfolio = array(
 	'wibazzar'	=> array(
 		'url'				=> 'http://wibazaar.com/',
 		'description'		=> 'Develop multi vendor ecommerce site',
-		'duration'			=> 'Jun, 2017 to October, 2017',
+		'duration'			=> 'Jun, 2017 to Continue',
 		'responsibility'	=> array(
 			'Develop prototype',
 			'Develop YITH Multivendor for new features',
@@ -107,7 +105,7 @@ $mrinal_portfolio = array(
 	),
 	'omc'	=> array(
 		'url'				=> 'http://omcbd.com/',
-		'description'		=> 'Develop and Maintain Multisite with WooCommerce for Overseas Marketing Ltd.',
+		'description'		=> 'Develop and Maintain Multisite with WooCommerce for Overseas Marketing Corporation',
 		'duration'			=> 'November, 2016 to January, 2017',
 		'responsibility'	=> array(
 			'Consult with client about their requirement.',
@@ -118,7 +116,7 @@ $mrinal_portfolio = array(
 	'accommodation' => array(
 		'url'				=> 'https://themeforest.net/item/accommodation-hotel-resorts-booking-wordpress-theme/15020430?s_rank=20',
 		'description'		=> 'Develop a WordPress Theme for Themeforest',
-		'duration'			=> 'April 2016 to Sepletmber 2016',
+		'duration'			=> 'April 2016 to September 2016',
 		'responsibility'	=> array(
 			'PSD to HTML',
 			'Create new option in Unyson Theme Option Framework'
@@ -216,7 +214,7 @@ $mrinal_social = array(
 $mrinal_references = array(
 	'Hasin Hayder'	=> array(
 		'position'	=>'Head of Ideas at Themebucket',
-		'address'	=>'1st Floor ,House# 434, Road# 30 , Mohakhali DOHS, Dhaka, Bangladesh.',
+		'address'	=>'1st Floor, House# 434, Road# 30 , Mohakhali DOHS, Dhaka, Bangladesh.',
 		'activity'	=>'Author of various technical books (https://www.packtpub.com/books/info/authors/hasinhayder)',
 		'Mobile'	=> '+8801797765881',
 		'Email'		=> 'hasin@leevio.com'
