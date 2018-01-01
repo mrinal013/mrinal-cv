@@ -20,3 +20,7 @@ Or,
 1. Download and unzip this zip file
 2. Upload `mrinal` to the `/wp-content/plugins/` directory
 3. Activate the plugin via WP Admin->Plugins
+
+== Credit ==
+1. https://wppb.me/
+
