@@ -14,12 +14,14 @@ Data are saved in options table as json format when this plugin active. Then, th
 
 == Installation ==
 1. Dowload this zip file
-2. Upload this zip file via WP admin->Plugins->Add New->Upload
+2. Upload this zip file via WP Admin Dashboard->Plugins->Add New->Upload
 3. Activate this plugin when successfully install
 Or,
 1. Download and unzip this zip file
 2. Upload `mrinal` to the `/wp-content/plugins/` directory
-3. Activate the plugin via WP Admin->Plugins
+3. Activate the plugin via WP Admin Dashboard->Plugins
+
+### After first activation CV open automatically. Always you can find the page at WP Admin Dashboard->Users->Mrinal
 
 == Credit ==
 1. https://wppb.me/
