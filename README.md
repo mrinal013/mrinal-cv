@@ -13,13 +13,17 @@ This is simply a small plugin to show my CV to client
 Data are saved in options table as json format when this plugin active. Then, this plugin fetch datas by ajax call
 
 == Installation ==
-1. Dowload this zip file
-2. Upload this zip file via WP Admin Dashboard->Plugins->Add New->Upload
-3. Activate this plugin when successfully install
+<ol>
+    <li>Dowload this zip file</li>
+    <li>Upload this zip file via WP admin->Plugins->Add New->Upload</li>
+    <li>Active this plugin when successfully install</li>
+</ol>
 Or,
-1. Download and unzip this zip file
-2. Upload `mrinal` to the `/wp-content/plugins/` directory
-3. Activate the plugin via WP Admin Dashboard->Plugins
+<ol>
+    <li>Download and unzip this zip file</li>
+    <li>Upload `mrinal` to the `/wp-content/plugins/` directory</li>
+    <li>Active the plugin via WP Admin->Plugins</li>
+</ol>
 
 ### After first activation CV open automatically. Always you can find the page at WP Admin Dashboard->Users->Mrinal
 
