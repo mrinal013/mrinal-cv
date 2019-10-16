@@ -21,7 +21,7 @@ Or,
     <li>Active the plugin via WP Admin->Plugins</li>
 </ol>
 
-### After first activation CV open automatically. Later you can find the page at WP Admin Dashboard->Users->Mrinal
+#After first activation CV open automatically. Later you can find the page at WP Admin Dashboard->Users->Mrinal
 
 == Credit ==
 1. https://wppb.me/
