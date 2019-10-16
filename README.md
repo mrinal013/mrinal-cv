@@ -8,11 +8,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 This is simply a small plugin to show my CV to client
 
-# Description #
-
-Data are saved in options table as json format when this plugin active. Then, this plugin fetch datas by ajax call
-
-== Installation ==
+# Installation #
 <ol>
     <li>Dowload this zip file</li>
     <li>Upload this zip file via WP admin->Plugins->Add New->Upload</li>
@@ -25,7 +21,7 @@ Or,
     <li>Active the plugin via WP Admin->Plugins</li>
 </ol>
 
-### After first activation CV open automatically. Always you can find the page at WP Admin Dashboard->Users->Mrinal
+### After first activation CV open automatically. Later you can find the page at WP Admin Dashboard->Users->Mrinal
 
 == Credit ==
 1. https://wppb.me/
