@@ -8,7 +8,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 This is simply a small plugin to show my CV to client
 
-== Description ==
+# Description #
 
 Data are saved in options table as json format when this plugin active. Then, this plugin fetch datas by ajax call
 
